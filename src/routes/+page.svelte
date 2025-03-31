@@ -44,7 +44,6 @@
     });
 
     onMount(async () => {
-        // os and browser
         const userAgent = navigator.userAgent;
         const browserData = userAgent.match(
             /(Chrome|Firefox|Safari|Opera|MSIE|Trident)\/?\s*([0-9]+(\.[0-9]+)?)/i
@@ -99,19 +98,13 @@
     });
 </script>
 
-<main
-    class="h-screen w-screen text-[#F8F8F8] flex flex-col items-center justify-center"
->
-    <div
-        class="border-2 border-[#2E2E2E] w-[95%] h-[90%] flex flex-col items-center justify-center"
-    >
+<main class="h-screen w-screen text-[#F8F8F8] flex flex-col items-center justify-center">
+    <div class="border-2 border-[#2E2E2E] w-[95%] h-[90%] flex flex-col items-center justify-center">
         <!-- top bar -->
-        <div
-            class="border-[#2E2E2E] border-b-2 w-full min-h-50 px-4 flex items-center justify-between"
-        >
+        <div class="border-[#2E2E2E] border-b-2 w-full min-h-50 px-4 flex items-center justify-between">
             <img
-                src="https://64.media.tumblr.com/4b6124c2fc8f5b4c8229da00f5b79f25/f091c430573b31e1-c3/s540x810/eba6e1f128e073fb66e3ea9f89993f7e0cd2f2ef.gifv"
-                alt="pfp"
+                src="volty.webp"
+                alt="ai-and-its-soul"
                 class="w-52 mt-3 md:mt-1"
             />
             <div class="hidden w-[210px] mr-3.5 text-right sm:block">
@@ -124,12 +117,10 @@
             </div>
         </div>
 
-        <!-- Split screens -->
+        <!-- split screens -->
         <div class="mt-auto w-[100%] flex flex-col md:flex-row h-[75%]">
             <!-- left -->
-            <div
-                class="w-full min-h-[100%] overflow-y-auto border-r-0 md:border-b-0 md:border-r border-[#2E2E2E] md:w-4/5"
-            >
+            <div class="w-full min-h-[100%] overflow-y-auto border-r-0 md:border-b-0 md:border-r border-[#2E2E2E] md:w-4/5">
                 <ul class="px-2 pt-1.5 -z-10">
                     <li>
                         {`~ [SYSTEM] boot seq initiated at ${bootTime.toLocaleTimeString()}`}
@@ -153,10 +144,7 @@
                         </li>
                     {/each}
                 </ul>
-                <form
-                    onsubmit={chat.handleSubmit}
-                    class="w-full mt-2 sticky bottom-0 bg-[#0F1214]"
-                >
+                <form onsubmit={chat.handleSubmit} class="w-full mt-2 sticky bottom-0 bg-[#0F1214]" >
                     <div class="flex w-full border-t-2 border-[#2E2E2E] px-2 pb-2 pt-1">
                         <p class="mr-1 font-bold">{`> `}</p>
                         <input
