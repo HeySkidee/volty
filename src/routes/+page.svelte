@@ -33,14 +33,13 @@
     let bootTime = new Date();
     let currentTime = new Date();
 
-    // Add interval to update time every second
     onMount(() => {
         const timer = setInterval(() => {
             currentTime = new Date();
         }, 1000);
 
         return () => {
-            clearInterval(timer); // Cleanup on unmount
+            clearInterval(timer);
         };
     });
 
@@ -56,10 +55,7 @@
             deviceInfo.browserVersion = browserData[2];
         }
 
-        // os
         deviceInfo.os = navigator.platform;
-
-        // screen res
         deviceInfo.screenResolution = `${window.screen.width}x${window.screen.height}`;
         deviceInfo.language = navigator.language;
         deviceInfo.onlineStatus = navigator.onLine;
@@ -122,10 +118,9 @@
                 <p class="font-['DS-Digital'] text-6xl tracking-wider text-left">
                     {currentTime.toLocaleTimeString("en-US", { hour12: false })}
                 </p>
-                <span class="text-neutral-400 mr-1"
-                    >SYNC_REGION: {deviceInfo.timeZone}</span
-                >
-                <!-- <span class="text-neutral-400"></span> -->
+                <span class="text-neutral-400 mr-1">
+                    SYNC_REGION: {deviceInfo.timeZone}
+                </span>
             </div>
         </div>
 
@@ -162,9 +157,7 @@
                     onsubmit={chat.handleSubmit}
                     class="w-full mt-2 sticky bottom-0 bg-[#0F1214]"
                 >
-                    <div
-                        class="flex w-full border-t-2 border-[#2E2E2E] px-2 pb-2 pt-1"
-                    >
+                    <div class="flex w-full border-t-2 border-[#2E2E2E] px-2 pb-2 pt-1">
                         <p class="mr-1 font-bold">{`> `}</p>
                         <input
                             bind:value={chat.input}
@@ -177,26 +170,20 @@
             </div>
 
             <!-- right -->
-            <!-- <div class="w-full md:max-w-76 min-h-[100%] overflow-y-auto px-4"> -->
-            <div
-                class="w-full border border-[#2E2E2E] min-h-[100%] overflow-y-auto px-4 md:w-90 md:border-0"
-            >
+            <div class="w-full border border-[#2E2E2E] min-h-[100%] overflow-y-auto px-4 md:w-90 md:border-0" >
                 <div class="py-4">
                     <h2 class="text-xl font-bold mb-4">
                         [SYS_DIAGNOSTICS_v1.0]
                     </h2>
                     <div class="space-y-2 text-sm">
-                        <div
-                            class="flex justify-between border-b border-[#2E2E2E] pb-2"
-                        >
-                            <span class="text-neutral-400"
-                                >NEURAL_LINK_STATUS:</span
-                            >
+                        <div class="flex justify-between border-b border-[#2E2E2E] pb-2" >
+                            <span class="text-neutral-400" >
+                                NEURAL_LINK_STATUS:</span >
                             <span class="flex items-center gap-1">
                                 {deviceInfo.onlineStatus
                                     ? "CONNECTED"
                                     : "OFFLINE"}
-                                <div
+                                <div 
                                     class={`rounded-full animate-pulse w-2 h-2 ${deviceInfo.onlineStatus ? "bg-green-500" : "bg-red-500"}`}
                                 ></div>
                             </span>
@@ -214,12 +201,10 @@
                         {/if}
 
                         {#if deviceInfo.os}
-                            <div
-                                class="flex justify-between mt-4 border-t border-[#2E2E2E] pt-2"
-                            >
-                                <span class="text-neutral-400"
-                                    >OPERATING_SYSTEM:</span
-                                >
+                            <div class="flex justify-between mt-4 border-t border-[#2E2E2E] pt-2" >
+                                <span class="text-neutral-400">
+                                    OPERATING_SYSTEM:
+                                </span>
                                 <span>{deviceInfo.os}</span>
                             </div>
                         {/if}
@@ -243,9 +228,7 @@
                         {/if}
 
                         {#if deviceInfo.timeZone}
-                            <div
-                                class="flex justify-between mt-4 border-t border-[#2E2E2E] pt-2"
-                            >
+                            <div class="flex justify-between mt-4 border-t border-[#2E2E2E] pt-2" >
                                 <span class="text-neutral-400">TIME_ZONE:</span>
                                 <span>{deviceInfo.timeZone}</span>
                             </div>
@@ -263,12 +246,10 @@
                         </div>
 
                         {#if deviceInfo.screenResolution}
-                            <div
-                                class="flex justify-between mt-4 border-t border-[#2E2E2E] pt-2"
-                            >
-                                <span class="text-neutral-400"
-                                    >OPTICAL_RESOLUTION:</span
-                                >
+                            <div class="flex justify-between mt-4 border-t border-[#2E2E2E] pt-2" >
+                                <span class="text-neutral-400">
+                                    OPTICAL_RESOLUTION:
+                                </span>
                                 <span>{deviceInfo.screenResolution}</span>
                             </div>
                         {/if}
@@ -278,9 +259,9 @@
                         </div>
                         {#if deviceInfo.batteryLevel !== undefined}
                             <div class="flex justify-between">
-                                <span class="text-neutral-400"
-                                    >POWER_LEVEL:</span
-                                >
+                                <span class="text-neutral-400">
+                                    POWER_LEVEL:
+                                </span>
                                 <span
                                     class={deviceInfo.charging
                                         ? "text-green-400"
@@ -293,16 +274,14 @@
                         {/if}
 
                         {#if deviceInfo.browserName}
-                            <div
-                                class="flex justify-between mt-4 border-t border-[#2E2E2E] pt-2"
-                            >
-                                <span class="text-neutral-400"
-                                    >BROWSER_AGENT:</span
-                                >
-                                <span
-                                    >{deviceInfo.browserName}
-                                    {deviceInfo.browserVersion}</span
-                                >
+                            <div class="flex justify-between mt-4 border-t border-[#2E2E2E] pt-2" >
+                                <span class="text-neutral-400">
+                                    BROWSER_AGENT:
+                                </span>
+                                <span>
+                                    {deviceInfo.browserName}
+                                    {deviceInfo.browserVersion}
+                                </span>
                             </div>
                         {/if}
                     </div>
