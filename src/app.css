@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'DS-Digital';
+  src: url('/fonts/DS-DIGII.TTF') format('truetype');
+}
+
+body{
+ @apply bg-[#0F1214] overflow-x-hidden
+}
+
 @layer base {
     ::-webkit-scrollbar {
       width: 8px;
@@ -13,4 +22,3 @@
       background-color: transparent; /* Tailwind's gray-100 */
     }
   }
-  

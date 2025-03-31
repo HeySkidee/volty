@@ -1,38 +1,42 @@
-# sv
+# Volty <img src="https://i.imgur.com/BsSEgd9.png" width="30" height="30" align="center" alt="Volty Logo">
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+An experimental project aiming to build a neural interface for AI interaction.  
 
-## Creating a project
+Currently it features a web based AI integration with plans to evolve into a hardware based neural interface system  
 
-If you're seeing this, you've probably already done this step. Congrats!
+> Note: The current version focuses on software only features as I continue learning about the hardware side of neural interfaces. Future updates will introduce hardware components for enhanced neural interface capabilities.
 
-```bash
-# create a new project in the current directory
-npx sv create
+## Tech Stack
 
-# create a new project in my-app
-npx sv create my-app
+- Svelte 5, SvelteKit 2.0, TailwindCSS 4.0
+- AI SDK (@ai-sdk/google, @ai-sdk/svelte) 
+- SvelteKit endpoints for AI integration and IP detection
+
+## Project Structure
+
+```
+src/
+├── routes/
+│   ├── api/
+│   │   ├── chat/    # ai integration
+│   │   └── ip/      # ip detection endpoint
+│   ├── +page.svelte # main interface
+│   └── +layout.svelte
+├── app.css          # global styles
+└── app.html         # html template
 ```
 
-## Developing
+## Setup
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+- Clone the repo:
+    ```bash
+    git clone https://github.com/HeySkidee/volty.git
+    cd volty
+    ```
+- Run `npm instal` followed by `npm run dev`.
+- Create a `.env` file in the project folder and add environment variables from `.env.example`.
+- Open http://localhost:5173
 
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## Status: 
+- Software: Web prototype 
+- Hardware: Planning phase
